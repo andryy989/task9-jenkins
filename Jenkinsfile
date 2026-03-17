@@ -12,6 +12,17 @@ pipeline {
             }
         }
 
+        
+        stage('Deploy index.html') {
+            steps {
+                sh '''
+                  # Копіюємо index.html з кореня репозиторію у веб-каталог
+                  sudo cp index.html /var/www/html/index.html
+                  sudo chown www-data:www-data /var/www/html/index.html
+                '''
+            }
+        }
+
         stage('Check Apache Status') {
             steps {
                 sh '''
