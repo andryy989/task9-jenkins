@@ -20,7 +20,7 @@ pipeline {
         stage('Prepare artifact') {
             steps {
                 sh '''
-                  tar -czf "${ARTIFACT}" -C "${BUILD_DIR}" .
+                  sudo tar -czf "${ARTIFACT}" -C "${BUILD_DIR}" .
                 '''
             }
         }
